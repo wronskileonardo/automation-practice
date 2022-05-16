@@ -18,15 +18,15 @@ Feature: Log in to the application
         And I click on the login link
         When I enter my email and incorrect password
         And I click the login button
-        Then I should not be logged in to the application
+        Then I should see a message that my email or password is incorrect
 
         @login @incorrect-email
         Scenario: Log in with incorrect email
         Given I am on the PfizerPro home page
         And I click on the login link
-        When I enter an incorrect email and password
+        When I enter an incorrect email and my password
         And I click the login button
-        Then I should not be logged in to the application
+        Then I should see a message that my email or password is incorrect
 
         @login @empty-email
         Scenario: Log in with empty email and password
@@ -34,7 +34,7 @@ Feature: Log in to the application
         And I click on the login link
         When I enter an empty email and password
         And I click the login button
-        Then Nothing will happen
+        Then Nothing should happen
 
         @login @not-an-email
         Scenario: Not an email address
@@ -42,8 +42,8 @@ Feature: Log in to the application
         And I click on the login link
         When I enter a not an email address and password
         And I click the login button
-        Then Log in button will be disabled
-        And Email field will be highlighted
+        Then The log in button will be disabled
+        And The email field will be highlighted
 
         @forgot-password @forgotten-password
         Scenario: Forgotten password
